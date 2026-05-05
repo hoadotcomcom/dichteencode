@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-cream-50 text-ink-900 font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    @apply bg-hot-300 text-ink-900;
+  }
+}
+
+@layer components {
+  /* ============ Buttons ============ */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2
+           px-5 py-3 font-display font-bold text-base
+           border-[3px] border-ink-900 rounded-2xl
+           transition-all duration-150 select-none
+           focus:outline-none focus-visible:ring-4 focus-visible:ring-zap-300;
+  }
+  .btn-primary {
+    @apply bg-hot-400 text-white shadow-brutal
+           hover:bg-hot-500 hover:-translate-y-0.5 hover:translate-x-0 hover:shadow-brutal-lg
+           active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+  .btn-zap {
+    @apply bg-zap-400 text-white shadow-brutal
+           hover:bg-zap-500 hover:-translate-y-0.5 hover:shadow-brutal-lg
+           active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+  .btn-lime {
+    @apply bg-lime-300 text-ink-900 shadow-brutal
+           hover:bg-lime-400 hover:-translate-y-0.5 hover:shadow-brutal-lg
+           active:translate-x-1 active:translate-y-1 active:shadow-none;
+  }
+  .btn-ghost {
+    @apply bg-cream-50 text-ink-900 shadow-brutal-sm
+           hover:bg-cream-100 hover:-translate-y-0.5 hover:shadow-brutal
+           active:translate-x-0.5 active:translate-y-0.5 active:shadow-none;
+  }
+  .btn-icon {
+    @apply px-3;
+  }
+
+  /* ============ Surfaces ============ */
+  .panel {
+    @apply bg-white border-[3px] border-ink-900 rounded-3xl shadow-brutal-lg;
+  }
+  .panel-pink   { @apply panel bg-hot-50; }
+  .panel-zap    { @apply panel bg-zap-50; }
+  .panel-lime   { @apply panel bg-lime-50; }
+  .panel-cream  { @apply panel bg-cream-100; }
+
+  /* Soft surface (less stark) */
+  .card-soft {
+    @apply bg-white border-2 border-ink-900/15 rounded-2xl shadow-[0_4px_0_0_rgb(15_10_31_/_0.08)];
+  }
+
+  /* ============ Inputs ============ */
+  .input {
+    @apply w-full px-4 py-3 bg-white
+           border-[3px] border-ink-900 rounded-2xl
+           font-sans text-ink-900 placeholder:text-ink-900/40
+           shadow-brutal-sm focus:shadow-brutal
+           focus:outline-none focus:-translate-y-0.5
+           transition-all duration-150;
+  }
+
+  /* ============ Sticker badges ============ */
+  .sticker {
+    @apply inline-flex items-center gap-1.5 px-3 py-1
+           font-display font-bold text-xs uppercase tracking-wide
+           border-[2.5px] border-ink-900 rounded-full
+           shadow-brutal-sm select-none;
+  }
+  .sticker-pink { @apply sticker bg-hot-300 text-ink-900; }
+  .sticker-zap  { @apply sticker bg-zap-300 text-white; }
+  .sticker-lime { @apply sticker bg-lime-300 text-ink-900; }
+  .sticker-lav  { @apply sticker bg-lav-200 text-ink-900; }
+
+  /* ============ Tilts (for sticker feel) ============ */
+  .tilt-l   { transform: rotate(-2deg); }
+  .tilt-r   { transform: rotate(2deg); }
+  .tilt-l-3 { transform: rotate(-3deg); }
+  .tilt-r-3 { transform: rotate(3deg); }
+
+  /* ============ Decorative ============ */
+  .squiggle {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8' viewBox='0 0 40 8'%3E%3Cpath d='M0 4 Q5 0 10 4 T20 4 T30 4 T40 4' stroke='%23ff1f6b' stroke-width='2.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: bottom;
+    padding-bottom: 6px;
+  }
+
+  /* ============ Star burst ============ */
+  .starburst {
+    clip-path: polygon(50% 0%, 60% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 40% 35%);
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-stroke {
+    -webkit-text-stroke: 2px rgb(15 10 31);
+    paint-order: stroke fill;
+  }
+}
