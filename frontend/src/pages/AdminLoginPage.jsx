@@ -85,12 +85,11 @@ export default function AdminLoginPage() {
             <h1 className="font-display font-bold text-3xl text-ink-900">
               {challenge ? 'nhập mã 2FA' : 'welcome back'}
             </h1>
-            <p className="text-sm text-ink-900/60 mt-1">
-              {challenge
-                ? 'check Telegram bot rồi nhập mã 6 số'
-                : 'đăng nhập để chỉnh model & xem logs'
-              }
-            </p>
+            {challenge && (
+              <p className="text-sm text-ink-900/60 mt-1">
+                check Telegram bot rồi nhập mã 6 số
+              </p>
+            )}
           </div>
 
           {!challenge ? (
@@ -145,11 +144,11 @@ export default function AdminLoginPage() {
                 {loading ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
-                    đang gửi mã...
+                    đang xác thực...
                   </>
                 ) : (
                   <>
-                    gửi mã Telegram
+                    Xác thực
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -223,11 +222,6 @@ export default function AdminLoginPage() {
             </form>
           )}
 
-          {!challenge && (
-            <p className="text-xs text-ink-900/50 text-center mt-5 font-mono">
-              2FA Telegram required
-            </p>
-          )}
         </div>
       </div>
     </div>
